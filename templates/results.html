@@ -1,0 +1,48 @@
+{%extends "main.html"%}
+{%block content%}
+
+<div class="p-6 shadow-md">
+    <div class="container mx-auto py-10 flex flex-wrap justify-between px-10"> 
+        {% for item in hello %}
+        <div class="pb-12 w-full lg:w-1/2 lg:px-6">
+            <div class="bg-gray-800 rounded-lg text-white/75 shadow-md lg:px-16 pb-12 pt-6 flex flex-col items-center">
+                
+                <!-- Competition Logo -->
+                <div class="flex justify-center mb-4">
+                    {% if item.competition.name == "Primera Division" %}
+                        <img src="https://crests.football-data.org/laliga.png" alt="laliga" class="lg:w-12 lg:h-12 w-6 h-6">
+                    {% else %}
+                        <img src="{{url_for('static',filename='src/CL.png')}}" alt="champions" class="lg:w-12 lg:h-12 w-6 h-6">
+                    {% endif %}
+                </div>
+
+                <!-- Match Details -->
+                <div class="flex justify-between items-center lg:pl-5 w-full">
+                    <!-- Home Team -->
+                     
+                    <div class="flex flex-col items-center w-20">
+                        <img src="{{item.homeTeam.crest}}" alt="homeTeam" class="lg:w-14 lg:h-14 w-7 h-7 ">
+                        <span class="font-bold lg:text-lg text-base text-center mt-2">{{item.homeTeam.shortName}}</span>
+                    </div>
+
+                    <!-- Score or Date --> 
+                    <div class="lg:text-xl text-base font-bold text-white">
+                        {% if item.score.fullTime.home == None %}
+                            <span>{{ datetime.fromisoformat(item.utcDate).date() }}</span>
+                        {% else %}
+                            <span>{{ item.score.fullTime.home }} - {{ item.score.fullTime.away }}</span>
+                        {% endif %}
+                    </div>
+
+                    <!-- Away Team -->
+                    <div class="flex flex-col items-center lg:pr-5 w-20">
+                        <img src="{{item.awayTeam.crest}}" alt="awayTeam" class="lg:w-14 lg:h-14 w-7 h-7">
+                        <span class="font-bold lg:text-lg text-base text-center mt-2">{{item.awayTeam.shortName}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}

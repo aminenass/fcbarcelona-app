@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Always Blaugrana</title>
+    <link rel="icon" href="https://crests.football-data.org/81.png" type="image/icon type">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/output.css')}}">
+
+</head>
+<body class="bg-gradient-to-r from-[#004D98] to-[#A50044] [&::-webkit-scrollbar]:w-4 [&::-webkit-scrollbar-track]:bg-neutral-800 
+  [&::-webkit-scrollbar-thumb]:bg-[#A50044]">
+
+<div>{%include "navbar.html"%}</div>
+<div>{% block content %} {%endblock%}</div>
+      
+    
+</body >
+  {%include "footer.html"%}
+</html>

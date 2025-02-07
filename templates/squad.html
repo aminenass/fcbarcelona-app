@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Squad</title>
+        <link rel="icon" href="https://crests.football-data.org/81.png" type="image/icon type">
+        <link rel="stylesheet" href="{{url_for('static',filename='src/output.css')}}">
+</head>    
+{%include "navbar.html"%}
+  <body class="bg-gradient-to-r from-[#004D98] to-[#A50044] [&::-webkit-scrollbar]:w-4 [&::-webkit-scrollbar-track]:bg-neutral-800 
+  [&::-webkit-scrollbar-thumb]:bg-[#A50044]">
+    
+        <!-- players -->
+         
+        <div class="p-6 flex flex-wrap justify-center gap-8">
+            {% for position,playerlist in data_player.items()%}
+            {%if 0 <= loop.index0 < 5 %}
+                 <section class="p-7 flex flex-col justify-center items-center font-bold text-white text-3xl w-full">
+                     {{position.upper()}}
+                    </section>
+            {%elif  loop.index0 == 5 %}
+                    <section class="p-7 flex flex-col justify-center items-center font-bold text-white text-3xl w-full">
+                        COACHING STAFF
+                       </section>
+            {%else%}
+
+              {%endif%}
+                {%for player in playerlist%}
+             
+                <div class=" relative max-w-sm w-auto flex flex-col items-center ">
+                       <!-- Image -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 from-20% to-transparent"></div>
+                        <img class="shadow-lg object-cover rounded-lg" 
+                            src="{{player.image}}" 
+                            alt="{{player.name}}"/>
+                       <!-- Player Name -->
+                         
+                        <h5 class=" absolute bottom-2 mb-6 text-2xl font-medium text-gray-900 dark:text-white text-center truncate w-full">
+                            {% set playerlisto = player.name.split(" ") %}
+                            {% if  playerlisto|length > 1%}
+                            <span class="font-light text-lg">{{ playerlisto[0] }} </span>{{(" ".join(playerlisto[1:])).upper()}}
+                            {%else%}
+                            {{playerlisto[0].upper()}}
+                            {%endif%}
+                        </h5>
+        
+                    <!-- Number & Position  -->
+                    <span class="absolute bottom-2 mb-14 text-9xl font-medium text-gray-900 dark:text-white/15 text-center truncate w-full">
+                       {%if player.kit_number != none %}
+                            {{player.kit_number|int}}
+                       {%else%}
+                       {%endif%}
+                    </span>
+                    <span class="absolute bottom-2  mb-1 text-sm font-medium text-gray-900 dark:text-white text-center truncate w-full">
+                      {{position}}
+                     </span>
+            </div>
+                 
+                     
+            {% endfor %}
+            {% endfor %}
+        </div>
+        
+  </body>
+  {%include "footer.html"%}
+</html>    
+
+

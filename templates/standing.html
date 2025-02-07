@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Standings</title>
+            <link rel="icon" href="https://crests.football-data.org/81.png" type="image/icon type">
+            <link rel="stylesheet" href="{{url_for('static',filename='src/output.css')}}">
+    </head>   
+    {%include "navbar.html"%}
+
+<body class="bg-gradient-to-r from-[#004D98] to-[#A50044] [&::-webkit-scrollbar]:w-4 [&::-webkit-scrollbar-track]:bg-neutral-800 
+  [&::-webkit-scrollbar-thumb]:bg-[#A50044]">
+    
+    <section class="p-7 flex flex-col justify-center items-center font-bold text-[#FB4A43] text-4xl ">
+        <img src="https://crests.football-data.org/laliga.png" alt="laligalogo" class="w-20 h-20">
+        <span >STANDING</span>
+    </section>
+    <div class="sm:p-4 p-2 relative overflow-x-auto ">
+        
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="sm:px-6 py-3 px-3">
+                        Club
+                    </th>
+                    <th scope="col" class="sm:px-6 py-3 px-8">
+                        <span class="hidden sm:inline">Played</span>
+                        <span class="sm:hidden">P</span> 
+                    </th>
+                    <th scope="col" class="sm:px-6 py-3 px-3">
+                        <span class="hidden sm:inline">Wins</span>
+                        <span class="sm:hidden">W</span> 
+                    </th>
+                    <th scope="col" class="sm:px-6 py-3 px-3">
+                        <span class="hidden sm:inline">Draw</span>
+                        <span class="sm:hidden">D</span> 
+                    </th>
+                    <th scope="col" class="sm:px-6 py-3 px-3">
+                        <span class="hidden sm:inline">Lose</span>
+                        <span class="sm:hidden">L</span> 
+                    </th>
+                    <th scope="col" class="sm:px-6 py-3 px-3">
+                        <span class="hidden sm:inline"> Points</span>
+                        <span class="sm:hidden">P</span>   
+                    </th>
+                </tr>
+            </thead>
+{%for team in standing.table %}
+
+        <tbody class="dark:bg-gray-800 dark:border-gray-700 border-gray-200">            
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                <th scope="row" class="sm:px-6 px-3 py-4 font-medium text-white whitespace-nowrap ">
+                    <div class="flex items-center gap-x-3">   
+                        <span class="text-white/75 sm:inline hidden" >{{team.position}} -</span>   
+                        <img src="{{team.team.crest}}" alt="Teamlogo" class="w-5 h-5">
+                        {%set clubfull = team.team.name.split(" ")%}
+                        <span class="hidden sm:inline">{{team.team.name}}</span>
+                        <span class="sm:hidden">{{clubfull[0][0]}}{{clubfull[1][0]}}</span>   
+                    </div>
+                          
+                </th>
+                <td class="px-8 py-4">
+                    {{team.playedGames}}
+                </td>
+                <td class="sm:px-8 sm:py-4 py-2 px-4">
+                    {{team.won}}
+                </td>
+                <td class="sm:px-8 sm:py-4 py-2 px-4">
+                    {{team.draw}}
+                </td>
+                <td class="sm:px-8 sm:py-4 py-2 px-4">
+                    {{team.lost}}
+                </td>
+                <td class="sm:px-8 sm:py-4 py-2 px-4">
+                    {{team.points}}
+                </td>
+            </tr>
+        </tbody>
+        {%endfor%}
+    </table>
+</div>
+<section class="p-7 flex flex-col justify-center items-center font-bold text-white text-4xl ">
+    <img src="{{url_for('static',filename='src/CL.png')}}" alt="championslogo" class="w-20 h-20">
+    <span >STANDING</span>
+</section>
+<div class="sm:p-4 p-2 relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="sm:px-6 py-3 px-3">
+                    Club
+                </th>
+                <th scope="col" class="sm:px-6 py-3 px-8">
+                    <span class="hidden sm:inline">Played</span>
+                    <span class="sm:hidden">P</span> 
+                </th>
+                <th scope="col" class="sm:px-6 py-3 px-3">
+                    <span class="hidden sm:inline">Wins</span>
+                    <span class="sm:hidden">W</span> 
+                </th>
+                <th scope="col" class="sm:px-6 py-3 px-3">
+                    <span class="hidden sm:inline">Draw</span>
+                    <span class="sm:hidden">D</span> 
+                </th>
+                <th scope="col" class="sm:px-6 py-3 px-3">
+                    <span class="hidden sm:inline">Lose</span>
+                    <span class="sm:hidden">L</span> 
+                </th>
+                <th scope="col" class="sm:px-6 py-3 px-3">
+                    <span class="hidden sm:inline"> Points</span>
+                    <span class="sm:hidden">P</span>   
+                </th>
+            </tr>
+        </thead>
+{%for team in standing_cl.table %}
+
+    <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+            <th scope="row" class="sm:px-6 px-3 py-4 font-medium text-white whitespace-nowrap ">
+                <div class="flex items-center gap-x-3">   
+                    <span class="text-white/75 sm:inline hidden" >{{team.position}} -</span>   
+                    <img src="{{team.team.crest}}" alt="Teamlogo" class="w-5 h-5">
+                    {%set clubfull = team.team.name.split(" ")%}
+                    <span class="hidden sm:inline">{{team.team.name}}</span>
+                    {%if clubfull|length == 2%}
+                    <span class="sm:hidden">{{clubfull[0][0]}}{{clubfull[1][0]}}</span>   
+                    {%else%} 
+                    <span class="sm:hidden">{{clubfull[0][0]}}{{clubfull[0][1]}}</span>   
+                   {%endif%}
+                </div>
+                      
+            </th>
+            <td class="px-8 py-4">
+                {{team.playedGames}}
+            </td>
+            <td class="sm:px-8 sm:py-4 py-2 px-4">
+                {{team.won}}
+            </td>
+            <td class="sm:px-8 sm:py-4 py-2 px-4">
+                {{team.draw}}
+            </td>
+            <td class="sm:px-8 sm:py-4 py-2 px-4">
+                {{team.lost}}
+            </td>
+            <td class="sm:px-8 sm:py-4 py-2 px-4">
+                {{team.points}}
+            </td>
+        </tr>
+    </tbody>
+    {%endfor%}
+</table>
+</div>
+</body>
+</html>
