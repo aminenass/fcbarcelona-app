@@ -39,13 +39,14 @@ Data is scraped from the official FC Barcelona website and stored in MongoDB.
 
 <h2>Preview</h2>
 
-![desktopversionresults](https://github.com/user-attachments/assets/52e1d4be-3652-4333-9126-fea37e2424c7)
-![desktopstanding](https://github.com/user-attachments/assets/f45455d1-6cd5-4b31-8c61-336cfa39d4e0)
-![desktopversionsq](https://github.com/user-attachments/assets/b0826b5e-523f-423c-98b5-2b5f25d2d63b)
+![desktopstanding](https://github.com/user-attachments/assets/4b27a3ee-3cd1-4391-85db-eb019097e2bf)
+![desktopversionresults](https://github.com/user-attachments/assets/c2f576fe-7f73-4006-88f6-c95612f6edc2)
+![desktopversionsq](https://github.com/user-attachments/assets/773e44bf-5874-4636-9479-872328046cea)
 
-![mobileversionresults](https://github.com/user-attachments/assets/bcf9b502-133b-4666-a6f6-0c81d525c847)
-![mobilestanding](https://github.com/user-attachments/assets/5de661ca-ce74-41c3-b691-757ec43e11ab)
-![mobileversionfullsq](https://github.com/user-attachments/assets/e40fa5be-1e0b-4d56-b216-aac801343375)
+![mobilestanding](https://github.com/user-attachments/assets/697fe7c3-95cc-4699-8fd8-cb4ee47babe4)
+![mobileversionfullsq](https://github.com/user-attachments/assets/9e895578-5afa-4484-b1bf-9d603866d56f)
+![mobileversionresults](https://github.com/user-attachments/assets/b1daabd6-98e9-4099-b462-236a64c6c689)
+
 
 
 
