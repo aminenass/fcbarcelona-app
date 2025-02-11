@@ -57,4 +57,5 @@ Data is scraped from the official FC Barcelona website and stored in MongoDB.
 <li><a href = https://www.selenium.dev /> Selenium</a> for web scraping.</li>
 <li><a href = https://www.mongodb.com />MongoDB</a> for database storage.</li>
 
+<h3>🚀 Live Site: <a href ="https://aminepy.pythonanywhere.com/">Click Here</a> N.B.: This project is deployed on PythonAnywhere. Since PythonAnywhere does not support MongoDB threads, the squad database is stored in a JSON file instead of using a direct MongoDB connection.</h3>
 <h3>Enjoy exploring FC Barcelona's match results, standings, and team details! ⚽ </h3>
