@@ -12,3 +12,6 @@ venv/
 
 !.gitattributes
 __pycache__/
+
+# Ignore node_modules
+node_modules/
