@@ -14,5 +14,6 @@ venv/
 __pycache__/
 
 
-#ignore node_modules
+#ignore node_modules , output.css
 node_modules/
+**/output.css
